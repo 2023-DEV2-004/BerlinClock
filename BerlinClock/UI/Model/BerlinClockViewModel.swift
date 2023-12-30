@@ -28,5 +28,6 @@ class BerlinClockViewModel {
 
                 return Block(active: active, color: color)
             })
+        self.oneMinuteBlocks = berlinClock.oneMinuteBlocks.map({ Block(active: $0, color: .red) })
     }
 }
