@@ -21,6 +21,14 @@ struct BerlinClockView: View {
         VStack {
             SecondSectionView(color: self.viewModel.secondHighlightColor)
                 .frame(height: Constants.sectionHeight)
+            BlockSectionView(blocks: self.viewModel.fiveHourBlocks)
+                .frame(height: Constants.sectionHeight)
+            BlockSectionView(blocks: self.viewModel.oneHourBlocks)
+                .frame(height: Constants.sectionHeight)
+            BlockSectionView(blocks: self.viewModel.fiveMinuteBlocks)
+                .frame(height: Constants.sectionHeight)
+            BlockSectionView(blocks: self.viewModel.oneMinuteBlocks)
+                .frame(height: Constants.sectionHeight)
             
             Spacer()
         }
