@@ -38,7 +38,13 @@ struct BerlinClock {
         let inactiveFiveMinuteBlocks = (0..<numberOfFiveMinuteInactiveBlocks).map { _ in false }
 
         fiveMinuteBlocks = activeFiveMinuteBlocks + inactiveFiveMinuteBlocks
+        
+        let numberOfOneMinuteActiveBlocks = minuteComponentValue % 5
+        let oneMinuteBlockArrayCapacity = 4
+        let numberOfOneMinuteInactiveBlocks = oneMinuteBlockArrayCapacity - numberOfOneMinuteActiveBlocks
+        let activeOneMinuteBlocks = (0..<numberOfOneMinuteActiveBlocks).map { _ in true }
+        let inactiveOneMinuteBlocks = (0..<numberOfOneMinuteInactiveBlocks).map { _ in false }
 
-        oneMinuteBlocks = Array(repeating: false, count: 4)
+        oneMinuteBlocks = activeOneMinuteBlocks + inactiveOneMinuteBlocks
     }
 }
