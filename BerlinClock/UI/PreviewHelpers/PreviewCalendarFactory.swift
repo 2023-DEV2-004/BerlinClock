@@ -10,7 +10,7 @@ struct PreviewCalendarFactory: CalendarFactory {
     let calendar: Calendar
     
     func create() -> Calendar {
-        Calendar(identifier: .chinese)
+        calendar
     }
     
 }
