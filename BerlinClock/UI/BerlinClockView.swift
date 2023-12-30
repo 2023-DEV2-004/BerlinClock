@@ -21,18 +21,23 @@ struct BerlinClockView: View {
 
     var body: some View {
         VStack {
-            HStack {
-                Spacer()
-                Circle()
-                    .stroke(Constants.strokeColor, lineWidth: Constants.lineWidth)
-                    .fill(viewModel.secondHighlightColor)
-                Spacer()
-            }
-            .frame(height: Constants.sectionHeight)
+            secondHighlightSection
             
             Spacer()
         }
         .padding(Constants.padding)
+    }
+    
+    @ViewBuilder
+    private var secondHighlightSection: some View {
+        HStack {
+            Spacer()
+            Circle()
+                .stroke(Constants.strokeColor, lineWidth: Constants.lineWidth)
+                .fill(viewModel.secondHighlightColor)
+            Spacer()
+        }
+        .frame(height: Constants.sectionHeight)
     }
 
 }
