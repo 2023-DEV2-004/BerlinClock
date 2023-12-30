@@ -42,6 +42,25 @@ class BerlinClockViewModelTests: XCTestCase {
         )
     }
     
+    func testFiveMinuteBlocks() throws {
+        let sut = try self.makeSUT(hour: 18, minute: 36, second: 0)
+
+        XCTAssertEqual(
+            [.init(active: true, color: .yellow),
+             .init(active: true, color: .yellow),
+             .init(active: true, color: .red),
+             .init(active: true, color: .yellow),
+             .init(active: true, color: .yellow),
+             .init(active: true, color: .red),
+             .init(active: true, color: .yellow),
+             .init(active: false, color: .yellow),
+             .init(active: false, color: .red),
+             .init(active: false, color: .yellow),
+             .init(active: false, color: .yellow)],
+            sut.fiveMinuteBlocks
+        )
+    }
+    
     private func makeSUT(hour: Int, minute: Int, second: Int) throws -> BerlinClockViewModel {
         let calendar = Calendar(identifier: .gregorian)
         let components = DateComponents(calendar: calendar, hour: hour, minute: minute, second: second)
