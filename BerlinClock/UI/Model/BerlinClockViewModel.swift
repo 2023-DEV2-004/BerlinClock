@@ -6,7 +6,7 @@
 import Foundation
 import SwiftUI
 
-class BerlinClockViewModel {
+class BerlinClockViewModel: ObservableObject {
     
     private let berlinClock: BerlinClock
 
