@@ -10,7 +10,7 @@ import XCTest
 class BerlinClockTests: XCTestCase {
     
     func testArrayCapacity() {
-        let sut = BerlinClock(date: Date())
+        let sut = BerlinClock(date: Date(), calendar: .current)
         
         XCTAssertEqual(4, sut.fiveHourBlocks.count)
         XCTAssertEqual(4, sut.oneHourBlocks.count)
@@ -23,7 +23,7 @@ class BerlinClockTests: XCTestCase {
         let components = DateComponents(calendar: calendar, hour: 18, minute: 36, second: 0)
         let date = try XCTUnwrap(components.date)
         
-        let sut = BerlinClock(date: date)
+        let sut = BerlinClock(date: date, calendar: calendar)
         
         XCTAssertEqual([true, true, true, false], sut.fiveHourBlocks)
     }
