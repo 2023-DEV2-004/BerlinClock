@@ -73,6 +73,12 @@ class BerlinClockViewModelTests: XCTestCase {
         )
     }
     
+    func testTimeDescription() throws {
+        let sut = try self.makeSUT(hour: 18, minute: 36, second: 0)
+        
+        XCTAssertEqual("18:36", sut.timeDescription)
+    }
+    
     private func makeSUT(hour: Int, minute: Int, second: Int) throws -> BerlinClockViewModel {
         let calendar = Calendar(identifier: .gregorian)
         let components = DateComponents(calendar: calendar, hour: hour, minute: minute, second: second)
