@@ -22,10 +22,10 @@ class BerlinClockViewModelTests: XCTestCase {
         let sut = try self.makeSUT(hour: 18, minute: 36, second: 0)
 
         XCTAssertEqual(
-            [.init(active: true, color: .red),
-             .init(active: true, color: .red),
-             .init(active: true, color: .red),
-             .init(active: false, color: .red)],
+            [.init(id: "fiveHourBlock-0", active: true, color: .red),
+             .init(id: "fiveHourBlock-1", active: true, color: .red),
+             .init(id: "fiveHourBlock-2", active: true, color: .red),
+             .init(id: "fiveHourBlock-3", active: false, color: .red)],
             sut.fiveHourBlocks
         )
     }
@@ -34,10 +34,10 @@ class BerlinClockViewModelTests: XCTestCase {
         let sut = try self.makeSUT(hour: 18, minute: 36, second: 0)
 
         XCTAssertEqual(
-            [.init(active: true, color: .red),
-             .init(active: true, color: .red),
-             .init(active: true, color: .red),
-             .init(active: false, color: .red)],
+            [.init(id: "oneHourBlock-0", active: true, color: .red),
+             .init(id: "oneHourBlock-1", active: true, color: .red),
+             .init(id: "oneHourBlock-2", active: true, color: .red),
+             .init(id: "oneHourBlock-3", active: false, color: .red)],
             sut.oneHourBlocks
         )
     }
@@ -46,17 +46,17 @@ class BerlinClockViewModelTests: XCTestCase {
         let sut = try self.makeSUT(hour: 18, minute: 36, second: 0)
 
         XCTAssertEqual(
-            [.init(active: true, color: .yellow),
-             .init(active: true, color: .yellow),
-             .init(active: true, color: .red),
-             .init(active: true, color: .yellow),
-             .init(active: true, color: .yellow),
-             .init(active: true, color: .red),
-             .init(active: true, color: .yellow),
-             .init(active: false, color: .yellow),
-             .init(active: false, color: .red),
-             .init(active: false, color: .yellow),
-             .init(active: false, color: .yellow)],
+            [.init(id: "fiveMinuteBlock-0", active: true, color: .yellow),
+             .init(id: "fiveMinuteBlock-1", active: true, color: .yellow),
+             .init(id: "fiveMinuteBlock-2", active: true, color: .red),
+             .init(id: "fiveMinuteBlock-3", active: true, color: .yellow),
+             .init(id: "fiveMinuteBlock-4", active: true, color: .yellow),
+             .init(id: "fiveMinuteBlock-5", active: true, color: .red),
+             .init(id: "fiveMinuteBlock-6", active: true, color: .yellow),
+             .init(id: "fiveMinuteBlock-7", active: false, color: .yellow),
+             .init(id: "fiveMinuteBlock-8", active: false, color: .red),
+             .init(id: "fiveMinuteBlock-9", active: false, color: .yellow),
+             .init(id: "fiveMinuteBlock-10", active: false, color: .yellow)],
             sut.fiveMinuteBlocks
         )
     }
@@ -65,10 +65,10 @@ class BerlinClockViewModelTests: XCTestCase {
         let sut = try self.makeSUT(hour: 18, minute: 36, second: 0)
 
         XCTAssertEqual(
-            [.init(active: true, color: .red),
-             .init(active: false, color: .red),
-             .init(active: false, color: .red),
-             .init(active: false, color: .red)],
+            [.init(id: "oneMinuteBlock-0", active: true, color: .red),
+             .init(id: "oneMinuteBlock-1", active: false, color: .red),
+             .init(id: "oneMinuteBlock-2", active: false, color: .red),
+             .init(id: "oneMinuteBlock-3", active: false, color: .red)],
             sut.oneMinuteBlocks
         )
     }
