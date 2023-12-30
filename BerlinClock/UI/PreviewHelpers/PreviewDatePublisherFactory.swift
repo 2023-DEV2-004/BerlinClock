@@ -11,7 +11,7 @@ struct PreviewDatePublisherFactory: DatePublisherFactory {
     let date: Date
     
     func create() -> AnyPublisher<Date, Never> {
-        Empty().eraseToAnyPublisher()
+        Just(date).eraseToAnyPublisher()
     }
     
 }
