@@ -11,7 +11,7 @@ struct BerlinClock {
     let fiveMinuteBlocks: [Bool]
     let oneMinuteBlocks: [Bool]
     
-    init() {
+    init(date: Date) {
         fiveHourBlocks = Array(repeating: false, count: 4)
         oneHourBlocks = Array(repeating: false, count: 4)
         fiveMinuteBlocks = Array(repeating: false, count: 11)

@@ -10,12 +10,22 @@ import XCTest
 class BerlinClockTests: XCTestCase {
     
     func testArrayCapacity() {
-        let sut = BerlinClock()
+        let sut = BerlinClock(date: Date())
         
         XCTAssertEqual(4, sut.fiveHourBlocks.count)
         XCTAssertEqual(4, sut.oneHourBlocks.count)
         XCTAssertEqual(11, sut.fiveMinuteBlocks.count)
         XCTAssertEqual(4, sut.oneMinuteBlocks.count)
+    }
+    
+    func testDateParsingInFiveHourBlocks() throws {
+        let calendar: Calendar = Calendar(identifier: .gregorian)
+        let components = DateComponents(calendar: calendar, hour: 18, minute: 36, second: 0)
+        let date = try XCTUnwrap(components.date)
+        
+        let sut = BerlinClock(date: date)
+        
+        XCTAssertEqual([true, true, true, false], sut.fiveHourBlocks)
     }
     
 }
