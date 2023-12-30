@@ -17,7 +17,7 @@ class BerlinClockViewModel {
     var oneMinuteBlocks: [Block] = []
     var timeDescription: String = ""
     
-    init(berlinClock: BerlinClock) {
+    init(berlinClock: BerlinClock, date: Date) {
         self.berlinClock = berlinClock
         self.secondHighlightColor = berlinClock.secondHighlighted ? .yellow : .clear
         self.fiveHourBlocks = berlinClock.fiveHourBlocks.map({ Block(active: $0, color: .red) })
@@ -30,5 +30,10 @@ class BerlinClockViewModel {
                 return Block(active: active, color: color)
             })
         self.oneMinuteBlocks = berlinClock.oneMinuteBlocks.map({ Block(active: $0, color: .red) })
+        
+        let dateFormatter = DateFormatter()
+        dateFormatter.dateFormat = "HH:mm"
+        
+        self.timeDescription = dateFormatter.string(from: date)
     }
 }

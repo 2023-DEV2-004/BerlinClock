@@ -85,6 +85,6 @@ class BerlinClockViewModelTests: XCTestCase {
         let date = try XCTUnwrap(components.date)
         let berlinClock = BerlinClock(date: date, calendar: calendar)
 
-        return BerlinClockViewModel(berlinClock: berlinClock)
+        return BerlinClockViewModel(berlinClock: berlinClock, date: date)
     }
 }
