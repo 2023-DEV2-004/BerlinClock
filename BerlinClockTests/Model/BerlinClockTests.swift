@@ -48,4 +48,14 @@ class BerlinClockTests: XCTestCase {
         XCTAssertEqual([true, true, true, true, true, true, true, false, false, false, false], sut.fiveMinuteBlocks)
     }
     
+    func testDateParsingOneMinuteBlocks() throws {
+        let calendar: Calendar = Calendar(identifier: .gregorian)
+        let components = DateComponents(calendar: calendar, hour: 18, minute: 36, second: 0)
+        let date = try XCTUnwrap(components.date)
+        
+        let sut = BerlinClock(date: date, calendar: calendar)
+        
+        XCTAssertEqual([true, false, false, false], sut.oneMinuteBlocks)
+    }
+    
 }
