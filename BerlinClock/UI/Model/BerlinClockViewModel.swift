@@ -14,6 +14,7 @@ class BerlinClockViewModel {
     var fiveHourBlocks: [Block] = []
     var oneHourBlocks: [Block] = []
     var fiveMinuteBlocks: [Block] = []
+    var oneMinuteBlocks: [Block] = []
     
     init(berlinClock: BerlinClock) {
         self.berlinClock = berlinClock
