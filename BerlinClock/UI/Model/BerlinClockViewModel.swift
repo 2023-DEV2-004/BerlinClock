@@ -8,7 +8,8 @@ import SwiftUI
 
 class BerlinClockViewModel: ObservableObject {
     
-    private let berlinClock: BerlinClock
+    private let calendarFactory: any CalendarFactory
+    private let datePublisherFactory: any DatePublisherFactory
 
     var secondHighlightColor: Color = .clear
     var fiveHourBlocks: [Block] = []
@@ -17,8 +18,13 @@ class BerlinClockViewModel: ObservableObject {
     var oneMinuteBlocks: [Block] = []
     var timeDescription: String = ""
     
-    init(berlinClock: BerlinClock, date: Date) {
-        self.berlinClock = berlinClock
+    init(calendarFactory: any CalendarFactory,
+         datePublisherFactory: any DatePublisherFactory,
+         berlinClock: BerlinClock,
+         date: Date) {
+        self.calendarFactory = calendarFactory
+        self.datePublisherFactory = datePublisherFactory
+
         self.secondHighlightColor = berlinClock.secondHighlighted ? .yellow : .clear
         self.fiveHourBlocks = berlinClock.fiveHourBlocks.enumerated()
             .map({ (index, active) in

@@ -84,7 +84,13 @@ class BerlinClockViewModelTests: XCTestCase {
         let components = DateComponents(calendar: calendar, hour: hour, minute: minute, second: second)
         let date = try XCTUnwrap(components.date)
         let berlinClock = BerlinClock(date: date, calendar: calendar)
+        
+        let calendarFactory = PreviewCalendarFactory(calendar: calendar)
+        let datePublisherFactory = PreviewDatePublisherFactory(date: date)
 
-        return BerlinClockViewModel(berlinClock: berlinClock, date: date)
+        return BerlinClockViewModel(calendarFactory: calendarFactory,
+                                    datePublisherFactory: datePublisherFactory,
+                                    berlinClock: berlinClock,
+                                    date: date)
     }
 }
