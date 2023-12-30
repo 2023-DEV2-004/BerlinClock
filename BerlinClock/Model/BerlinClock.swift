@@ -6,6 +6,7 @@
 import Foundation
 
 struct BerlinClock {
+    let secondHighlighted: Bool = false
     let fiveHourBlocks: [Bool]
     let oneHourBlocks: [Bool]
     let fiveMinuteBlocks: [Bool]
