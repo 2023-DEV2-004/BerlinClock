@@ -6,13 +6,15 @@
 import Foundation
 
 struct BerlinClock {
-    let secondHighlighted: Bool = false
+    let secondHighlighted: Bool
     let fiveHourBlocks: [Bool]
     let oneHourBlocks: [Bool]
     let fiveMinuteBlocks: [Bool]
     let oneMinuteBlocks: [Bool]
     
     init(date: Date, calendar: Calendar) {
+        secondHighlighted = calendar.component(.second, from: date) % 2 == 0
+
         let hourComponentValue = calendar.component(.hour, from: date)
         let minuteComponentValue = calendar.component(.minute, from: date)
 
