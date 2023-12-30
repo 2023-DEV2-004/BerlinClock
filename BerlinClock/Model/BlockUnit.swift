@@ -5,6 +5,7 @@
 
 import Foundation
 
+/// An definitive list of units that a `BerlinClock` can have.
 enum BlockUnit {
 
     /// The first row of a Berlin Clock exists out of 4 five hour blocks.
@@ -65,6 +66,11 @@ extension BlockUnit {
         }
     }
     
+    /// Generates a `Berlin Clock` representation for the specific `BlockUnit`
+    /// - Parameters:
+    ///   - date: The date object that will be represented as a `Berlin Clock`
+    ///   - calendar: The calendar that serves for the correct date formatting.
+    /// - Returns: An array of `Bool`'s that resemble the active and inactive blocks.
     func blockRepresentation(date: Date, calendar: Calendar) -> [Bool] {
         let componentValue = calendar.component(self.calendarComponent, from: date)
         let numberOfActiveBlocks = self.numberOfActiveBlocks(componentValue: componentValue)
