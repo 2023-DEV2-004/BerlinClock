@@ -24,6 +24,7 @@
 		6F8EC5312B400FC300C66EA2 /* BlockSectionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6F8EC5302B400FC300C66EA2 /* BlockSectionView.swift */; };
 		6F8EC5332B40140A00C66EA2 /* TimeDescriptionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6F8EC5322B40140A00C66EA2 /* TimeDescriptionView.swift */; };
 		6F8EC5372B40171500C66EA2 /* Factory.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6F8EC5362B40171500C66EA2 /* Factory.swift */; };
+		6F8EC5452B40A08A00C66EA2 /* DatePublisherFactory.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6F8EC5442B40A08A00C66EA2 /* DatePublisherFactory.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -64,6 +65,7 @@
 		6F8EC5302B400FC300C66EA2 /* BlockSectionView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BlockSectionView.swift; sourceTree = "<group>"; };
 		6F8EC5322B40140A00C66EA2 /* TimeDescriptionView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TimeDescriptionView.swift; sourceTree = "<group>"; };
 		6F8EC5362B40171500C66EA2 /* Factory.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Factory.swift; sourceTree = "<group>"; };
+		6F8EC5442B40A08A00C66EA2 /* DatePublisherFactory.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DatePublisherFactory.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -217,6 +219,7 @@
 			isa = PBXGroup;
 			children = (
 				6F8EC5362B40171500C66EA2 /* Factory.swift */,
+				6F8EC5442B40A08A00C66EA2 /* DatePublisherFactory.swift */,
 			);
 			path = Protocols;
 			sourceTree = "<group>";
@@ -352,6 +355,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				6F8EC5312B400FC300C66EA2 /* BlockSectionView.swift in Sources */,
+				6F8EC5452B40A08A00C66EA2 /* DatePublisherFactory.swift in Sources */,
 				6F8EC4F12B3FDF5000C66EA2 /* ContentView.swift in Sources */,
 				6F8EC51F2B3FF4B000C66EA2 /* BlockUnit.swift in Sources */,
 				6F8EC4EF2B3FDF5000C66EA2 /* BerlinClockApp.swift in Sources */,
