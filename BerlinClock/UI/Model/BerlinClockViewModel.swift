@@ -18,5 +18,6 @@ class BerlinClockViewModel {
         self.berlinClock = berlinClock
         self.secondHighlightColor = berlinClock.secondHighlighted ? .yellow : .clear
         self.fiveHourBlocks = berlinClock.fiveHourBlocks.map({ Block(active: $0, color: .red) })
+        self.oneHourBlocks = berlinClock.oneHourBlocks.map({ Block(active: $0, color: .red) })
     }
 }
