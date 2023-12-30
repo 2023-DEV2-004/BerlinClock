@@ -13,6 +13,7 @@ struct BerlinClock {
     
     init(date: Date, calendar: Calendar) {
         let hourComponentValue = calendar.component(.hour, from: date)
+        let minuteComponentValue = calendar.component(.minute, from: date)
 
         let numberOfFiveHourActiveBlocks = hourComponentValue / 5
         let fiveHourBlockArrayCapacity = 4
@@ -30,7 +31,14 @@ struct BerlinClock {
 
         oneHourBlocks = activeOneHourBlocks + inactiveOneHourBlocks
 
-        fiveMinuteBlocks = Array(repeating: false, count: 11)
+        let numberOfFiveMinuteActiveBlocks = minuteComponentValue / 5
+        let fiveMinuteBlockArrayCapacity = 11
+        let numberOfFiveMinuteInactiveBlocks = fiveMinuteBlockArrayCapacity - numberOfFiveMinuteActiveBlocks
+        let activeFiveMinuteBlocks = (0..<numberOfFiveMinuteActiveBlocks).map { _ in true }
+        let inactiveFiveMinuteBlocks = (0..<numberOfFiveMinuteInactiveBlocks).map { _ in false }
+
+        fiveMinuteBlocks = activeFiveMinuteBlocks + inactiveFiveMinuteBlocks
+
         oneMinuteBlocks = Array(repeating: false, count: 4)
     }
 }
