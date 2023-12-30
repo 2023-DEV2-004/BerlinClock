@@ -14,5 +14,6 @@ class BerlinClockViewModel {
     
     init(berlinClock: BerlinClock) {
         self.berlinClock = berlinClock
+        self.secondHighlightColor = berlinClock.secondHighlighted ? .yellow : .clear
     }
 }
