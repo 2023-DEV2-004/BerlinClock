@@ -194,17 +194,17 @@
 		6F8EC5242B3FFB3600C66EA2 /* UI */ = {
 			isa = PBXGroup;
 			children = (
-				6F8EC5252B3FFB4000C66EA2 /* UI */,
+				6F8EC5252B3FFB4000C66EA2 /* Model */,
 			);
 			path = UI;
 			sourceTree = "<group>";
 		};
-		6F8EC5252B3FFB4000C66EA2 /* UI */ = {
+		6F8EC5252B3FFB4000C66EA2 /* Model */ = {
 			isa = PBXGroup;
 			children = (
 				6F8EC5222B3FFB2C00C66EA2 /* BerlinClockViewModelTests.swift */,
 			);
-			path = UI;
+			path = Model;
 			sourceTree = "<group>";
 		};
 		6F8EC5342B4016FC00C66EA2 /* Data */ = {
