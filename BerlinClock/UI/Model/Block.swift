@@ -6,7 +6,7 @@
 import Foundation
 import SwiftUI
 
-struct Block: Equatable {
+struct Block: Equatable, Hashable {
     let active: Bool
     let color: Color
 }
