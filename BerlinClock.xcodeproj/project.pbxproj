@@ -23,6 +23,7 @@
 		6F8EC52F2B400E5600C66EA2 /* BlockView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6F8EC52E2B400E5600C66EA2 /* BlockView.swift */; };
 		6F8EC5312B400FC300C66EA2 /* BlockSectionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6F8EC5302B400FC300C66EA2 /* BlockSectionView.swift */; };
 		6F8EC5332B40140A00C66EA2 /* TimeDescriptionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6F8EC5322B40140A00C66EA2 /* TimeDescriptionView.swift */; };
+		6F8EC5372B40171500C66EA2 /* Factory.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6F8EC5362B40171500C66EA2 /* Factory.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -62,6 +63,7 @@
 		6F8EC52E2B400E5600C66EA2 /* BlockView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BlockView.swift; sourceTree = "<group>"; };
 		6F8EC5302B400FC300C66EA2 /* BlockSectionView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BlockSectionView.swift; sourceTree = "<group>"; };
 		6F8EC5322B40140A00C66EA2 /* TimeDescriptionView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TimeDescriptionView.swift; sourceTree = "<group>"; };
+		6F8EC5362B40171500C66EA2 /* Factory.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Factory.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -112,6 +114,7 @@
 		6F8EC4ED2B3FDF5000C66EA2 /* BerlinClock */ = {
 			isa = PBXGroup;
 			children = (
+				6F8EC5342B4016FC00C66EA2 /* Data */,
 				6F8EC5202B3FFAF300C66EA2 /* UI */,
 				6F8EC5182B3FE3BC00C66EA2 /* Model */,
 				6F8EC4EE2B3FDF5000C66EA2 /* BerlinClockApp.swift */,
@@ -200,6 +203,22 @@
 				6F8EC5222B3FFB2C00C66EA2 /* BerlinClockViewModelTests.swift */,
 			);
 			path = UI;
+			sourceTree = "<group>";
+		};
+		6F8EC5342B4016FC00C66EA2 /* Data */ = {
+			isa = PBXGroup;
+			children = (
+				6F8EC5352B40170500C66EA2 /* Protocols */,
+			);
+			path = Data;
+			sourceTree = "<group>";
+		};
+		6F8EC5352B40170500C66EA2 /* Protocols */ = {
+			isa = PBXGroup;
+			children = (
+				6F8EC5362B40171500C66EA2 /* Factory.swift */,
+			);
+			path = Protocols;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -340,6 +359,7 @@
 				6F8EC51D2B3FE53600C66EA2 /* BerlinClock.swift in Sources */,
 				6F8EC5272B3FFCBC00C66EA2 /* BerlinClockViewModel.swift in Sources */,
 				6F8EC5332B40140A00C66EA2 /* TimeDescriptionView.swift in Sources */,
+				6F8EC5372B40171500C66EA2 /* Factory.swift in Sources */,
 				6F8EC52D2B400CF800C66EA2 /* SecondSectionView.swift in Sources */,
 				6F8EC52F2B400E5600C66EA2 /* BlockView.swift in Sources */,
 				6F8EC52B2B400A6000C66EA2 /* BerlinClockView.swift in Sources */,
