@@ -2,8 +2,6 @@
 //  BerlinClockView.swift
 //  BerlinClock
 //
-//  Created by Dieter Vogels on 30/12/2023.
-//
 
 import Foundation
 import SwiftUI
@@ -29,6 +27,10 @@ struct BerlinClockView: View {
                 .frame(height: Constants.sectionHeight)
             BlockSectionView(blocks: self.viewModel.oneMinuteBlocks)
                 .frame(height: Constants.sectionHeight)
+            
+            Spacer()
+            
+            TimeDescriptionView(time: self.viewModel.timeDescription)
             
             Spacer()
         }
