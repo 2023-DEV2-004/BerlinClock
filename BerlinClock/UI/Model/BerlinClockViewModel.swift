@@ -12,6 +12,7 @@ class BerlinClockViewModel {
 
     var secondHighlightColor: Color = .clear
     var fiveHourBlocks: [Block] = []
+    var oneHourBlocks: [Block] = []
     
     init(berlinClock: BerlinClock) {
         self.berlinClock = berlinClock
