@@ -8,7 +8,6 @@
 
 /* Begin PBXBuildFile section */
 		6F8EC4EF2B3FDF5000C66EA2 /* BerlinClockApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6F8EC4EE2B3FDF5000C66EA2 /* BerlinClockApp.swift */; };
-		6F8EC4F12B3FDF5000C66EA2 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6F8EC4F02B3FDF5000C66EA2 /* ContentView.swift */; };
 		6F8EC4F32B3FDF5100C66EA2 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 6F8EC4F22B3FDF5100C66EA2 /* Assets.xcassets */; };
 		6F8EC4F62B3FDF5100C66EA2 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 6F8EC4F52B3FDF5100C66EA2 /* Preview Assets.xcassets */; };
 		6F8EC50A2B3FDF5100C66EA2 /* BerlinClockUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6F8EC5092B3FDF5100C66EA2 /* BerlinClockUITests.swift */; };
@@ -56,7 +55,6 @@
 /* Begin PBXFileReference section */
 		6F8EC4EB2B3FDF5000C66EA2 /* BerlinClock.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = BerlinClock.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		6F8EC4EE2B3FDF5000C66EA2 /* BerlinClockApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BerlinClockApp.swift; sourceTree = "<group>"; };
-		6F8EC4F02B3FDF5000C66EA2 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
 		6F8EC4F22B3FDF5100C66EA2 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		6F8EC4F52B3FDF5100C66EA2 /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
 		6F8EC4FB2B3FDF5100C66EA2 /* BerlinClockTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = BerlinClockTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -138,7 +136,6 @@
 				6F8EC5202B3FFAF300C66EA2 /* UI */,
 				6F8EC5182B3FE3BC00C66EA2 /* Model */,
 				6F8EC4EE2B3FDF5000C66EA2 /* BerlinClockApp.swift */,
-				6F8EC4F02B3FDF5000C66EA2 /* ContentView.swift */,
 				6F8EC4F22B3FDF5100C66EA2 /* Assets.xcassets */,
 				6F8EC4F42B3FDF5100C66EA2 /* Preview Content */,
 			);
@@ -409,7 +406,6 @@
 				6F8EC5452B40A08A00C66EA2 /* DatePublisherFactory.swift in Sources */,
 				6F8EC55E2B41703100C66EA2 /* CurrentCalendarFactory.swift in Sources */,
 				6F8EC54B2B40A2F800C66EA2 /* PreviewDatePublisherFactory.swift in Sources */,
-				6F8EC4F12B3FDF5000C66EA2 /* ContentView.swift in Sources */,
 				6F8EC51F2B3FF4B000C66EA2 /* BlockUnit.swift in Sources */,
 				6F8EC4EF2B3FDF5000C66EA2 /* BerlinClockApp.swift in Sources */,
 				6F8EC5292B3FFEEC00C66EA2 /* Block.swift in Sources */,
