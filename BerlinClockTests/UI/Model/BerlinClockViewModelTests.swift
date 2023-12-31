@@ -12,14 +12,17 @@ class BerlinClockViewModelTests: XCTestCase {
     
     func testSecondHighlightColor() throws {
         let sut1 = try self.makeSUT(hour: 18, minute: 36, second: 0)
+        sut1.subscribeToChanges()
         XCTAssertEqual(Color.yellow, sut1.secondHighlightColor)
         
         let sut2 = try self.makeSUT(hour: 18, minute: 36, second: 1)
+        sut2.subscribeToChanges()
         XCTAssertEqual(Color.clear, sut2.secondHighlightColor)
     }
     
     func testFiveHourBlocks() throws {
         let sut = try self.makeSUT(hour: 18, minute: 36, second: 0)
+        sut.subscribeToChanges()
 
         XCTAssertEqual(
             [.init(id: "fiveHourBlock-0", active: true, color: .red),
@@ -32,6 +35,7 @@ class BerlinClockViewModelTests: XCTestCase {
     
     func testOneHourBlocks() throws {
         let sut = try self.makeSUT(hour: 18, minute: 36, second: 0)
+        sut.subscribeToChanges()
 
         XCTAssertEqual(
             [.init(id: "oneHourBlock-0", active: true, color: .red),
@@ -44,6 +48,7 @@ class BerlinClockViewModelTests: XCTestCase {
     
     func testFiveMinuteBlocks() throws {
         let sut = try self.makeSUT(hour: 18, minute: 36, second: 0)
+        sut.subscribeToChanges()
 
         XCTAssertEqual(
             [.init(id: "fiveMinuteBlock-0", active: true, color: .yellow),
@@ -63,6 +68,7 @@ class BerlinClockViewModelTests: XCTestCase {
     
     func testOneMinuteBlocks() throws {
         let sut = try self.makeSUT(hour: 18, minute: 36, second: 0)
+        sut.subscribeToChanges()
 
         XCTAssertEqual(
             [.init(id: "oneMinuteBlock-0", active: true, color: .red),
@@ -75,6 +81,7 @@ class BerlinClockViewModelTests: XCTestCase {
     
     func testTimeDescription() throws {
         let sut = try self.makeSUT(hour: 18, minute: 36, second: 0)
+        sut.subscribeToChanges()
         
         XCTAssertEqual("18:36", sut.timeDescription)
     }
@@ -83,8 +90,11 @@ class BerlinClockViewModelTests: XCTestCase {
         let calendar = Calendar(identifier: .gregorian)
         let components = DateComponents(calendar: calendar, hour: hour, minute: minute, second: second)
         let date = try XCTUnwrap(components.date)
-        let berlinClock = BerlinClock(date: date, calendar: calendar)
+        
+        let calendarFactory = PreviewCalendarFactory(calendar: calendar)
+        let datePublisherFactory = PreviewDatePublisherFactory(date: date)
 
-        return BerlinClockViewModel(berlinClock: berlinClock, date: date)
+        return BerlinClockViewModel(calendarFactory: calendarFactory,
+                                    datePublisherFactory: datePublisherFactory)
     }
 }

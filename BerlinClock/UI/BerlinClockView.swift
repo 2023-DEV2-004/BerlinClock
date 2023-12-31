@@ -35,10 +35,14 @@ struct BerlinClockView: View {
             Spacer()
         }
         .padding(Constants.padding)
+        .onAppear(perform: {
+            self.viewModel.subscribeToChanges()
+        })
     }
     
 }
 
 #Preview {
-    BerlinClockView(viewModel: BerlinClockViewModel(berlinClock: BerlinClock(date: Date(), calendar: .current), date: Date()))
+    BerlinClockView(viewModel: BerlinClockViewModel(calendarFactory: PreviewCalendarFactory(calendar: .current),
+                                                    datePublisherFactory: PreviewDatePublisherFactory(date: Date())))
 }
