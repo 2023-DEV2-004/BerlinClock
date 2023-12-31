@@ -5,13 +5,14 @@
 
 import Foundation
 import SwiftUI
+import Combine
 
 class BerlinClockViewModel: ObservableObject {
     
     private let calendarFactory: any CalendarFactory
     private let datePublisherFactory: any DatePublisherFactory
 
-    var secondHighlightColor: Color = .clear
+    @Published var secondHighlightColor: Color = .clear
     var fiveHourBlocks: [Block] = []
     var oneHourBlocks: [Block] = []
     var fiveMinuteBlocks: [Block] = []
@@ -25,7 +26,6 @@ class BerlinClockViewModel: ObservableObject {
         self.calendarFactory = calendarFactory
         self.datePublisherFactory = datePublisherFactory
 
-        self.secondHighlightColor = berlinClock.secondHighlighted ? .yellow : .clear
         self.fiveHourBlocks = berlinClock.fiveHourBlocks.enumerated()
             .map({ (index, active) in
                 Block(id: "fiveHourBlock-\(index)", active: active, color: .red)
@@ -50,5 +50,26 @@ class BerlinClockViewModel: ObservableObject {
         dateFormatter.dateFormat = "HH:mm"
         
         self.timeDescription = dateFormatter.string(from: date)
+    }
+    
+    func subscribeToChanges() {
+        self.subscribeToSecondHighlightChanges()
+    }
+    
+    private func subscribeToSecondHighlightChanges() {
+        self.berlinClockPublisher()
+            .map(\.secondHighlighted)
+            .map({ $0 ? .yellow : .clear })
+            .assign(to: &$secondHighlightColor)
+    }
+    
+    private func berlinClockPublisher() -> AnyPublisher<BerlinClock, Never> {
+        self.datePublisher()
+            .map({ BerlinClock(date: $0, calendar: self.calendarFactory.create()) })
+            .eraseToAnyPublisher()
+    }
+    
+    private func datePublisher() -> AnyPublisher<Date, Never> {
+        self.datePublisherFactory.create()
     }
 }

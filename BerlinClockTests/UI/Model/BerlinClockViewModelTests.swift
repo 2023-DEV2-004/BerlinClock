@@ -12,9 +12,11 @@ class BerlinClockViewModelTests: XCTestCase {
     
     func testSecondHighlightColor() throws {
         let sut1 = try self.makeSUT(hour: 18, minute: 36, second: 0)
+        sut1.subscribeToChanges()
         XCTAssertEqual(Color.yellow, sut1.secondHighlightColor)
         
         let sut2 = try self.makeSUT(hour: 18, minute: 36, second: 1)
+        sut2.subscribeToChanges()
         XCTAssertEqual(Color.clear, sut2.secondHighlightColor)
     }
     

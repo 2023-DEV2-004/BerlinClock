@@ -35,6 +35,9 @@ struct BerlinClockView: View {
             Spacer()
         }
         .padding(Constants.padding)
+        .onAppear(perform: {
+            self.viewModel.subscribeToChanges()
+        })
     }
     
 }
