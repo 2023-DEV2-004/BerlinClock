@@ -15,7 +15,7 @@ class BerlinClockViewModel: ObservableObject {
     @Published var secondHighlightColor: Color = .clear
     @Published var fiveHourBlocks: [Block] = []
     @Published var oneHourBlocks: [Block] = []
-    var fiveMinuteBlocks: [Block] = []
+    @Published var fiveMinuteBlocks: [Block] = []
     var oneMinuteBlocks: [Block] = []
     var timeDescription: String = ""
     
@@ -26,13 +26,6 @@ class BerlinClockViewModel: ObservableObject {
         self.calendarFactory = calendarFactory
         self.datePublisherFactory = datePublisherFactory
 
-        self.fiveMinuteBlocks = berlinClock.fiveMinuteBlocks.enumerated()
-            .map({ (index, active) in
-                let incrementedIndex = index + 1 // .enumerated indexes are zerobased.
-                let color: Color = (incrementedIndex % 3 == 0) ? .red : .yellow
-
-                return Block(id: "fiveMinuteBlock-\(index)", active: active, color: color)
-            })
         self.oneMinuteBlocks = berlinClock.oneMinuteBlocks.enumerated()
             .map({ (index, active) in
                 Block(id: "oneMinuteBlock-\(index)", active: active, color: .red)
@@ -48,6 +41,7 @@ class BerlinClockViewModel: ObservableObject {
         self.subscribeToSecondHighlightChanges()
         self.subscribeToFiveHourBlockChanges()
         self.subscribeToOneHourBlockChanges()
+        self.subscribeToFiveMinuteBlockChanges()
     }
     
     private func subscribeToSecondHighlightChanges() {
@@ -73,6 +67,20 @@ class BerlinClockViewModel: ObservableObject {
                 oneHourBlocks.enumerated().map({ (index, active) in Block(id: "oneHourBlock-\(index)", active: active, color: .red) })
             }
             .assign(to: &$oneHourBlocks)
+    }
+    
+    private func subscribeToFiveMinuteBlockChanges() {
+        self.berlinClockPublisher()
+            .map(\.fiveMinuteBlocks)
+            .map { fiveMinuteBlocks in
+                fiveMinuteBlocks.enumerated().map({ (index, active) in 
+                    let incrementedIndex = index + 1 // .enumerated indexes are zerobased.
+                    let color: Color = (incrementedIndex % 3 == 0) ? .red : .yellow
+
+                    return Block(id: "fiveMinuteBlock-\(index)", active: active, color: color)
+                })
+            }
+            .assign(to: &$fiveMinuteBlocks)
     }
     
     private func berlinClockPublisher() -> AnyPublisher<BerlinClock, Never> {

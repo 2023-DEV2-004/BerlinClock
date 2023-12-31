@@ -48,6 +48,7 @@ class BerlinClockViewModelTests: XCTestCase {
     
     func testFiveMinuteBlocks() throws {
         let sut = try self.makeSUT(hour: 18, minute: 36, second: 0)
+        sut.subscribeToChanges()
 
         XCTAssertEqual(
             [.init(id: "fiveMinuteBlock-0", active: true, color: .yellow),
