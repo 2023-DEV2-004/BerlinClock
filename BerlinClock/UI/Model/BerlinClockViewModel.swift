@@ -14,7 +14,7 @@ class BerlinClockViewModel: ObservableObject {
 
     @Published var secondHighlightColor: Color = .clear
     @Published var fiveHourBlocks: [Block] = []
-    var oneHourBlocks: [Block] = []
+    @Published var oneHourBlocks: [Block] = []
     var fiveMinuteBlocks: [Block] = []
     var oneMinuteBlocks: [Block] = []
     var timeDescription: String = ""
@@ -26,10 +26,6 @@ class BerlinClockViewModel: ObservableObject {
         self.calendarFactory = calendarFactory
         self.datePublisherFactory = datePublisherFactory
 
-        self.oneHourBlocks = berlinClock.oneHourBlocks.enumerated()
-            .map({ (index, active) in
-                Block(id: "oneHourBlock-\(index)", active: active, color: .red)
-            })
         self.fiveMinuteBlocks = berlinClock.fiveMinuteBlocks.enumerated()
             .map({ (index, active) in
                 let incrementedIndex = index + 1 // .enumerated indexes are zerobased.
@@ -51,6 +47,7 @@ class BerlinClockViewModel: ObservableObject {
     func subscribeToChanges() {
         self.subscribeToSecondHighlightChanges()
         self.subscribeToFiveHourBlockChanges()
+        self.subscribeToOneHourBlockChanges()
     }
     
     private func subscribeToSecondHighlightChanges() {
@@ -67,6 +64,15 @@ class BerlinClockViewModel: ObservableObject {
                 fiveHourBlocks.enumerated().map({ (index, active) in Block(id: "fiveHourBlock-\(index)", active: active, color: .red) })
             }
             .assign(to: &$fiveHourBlocks)
+    }
+    
+    private func subscribeToOneHourBlockChanges() {
+        self.berlinClockPublisher()
+            .map(\.oneHourBlocks)
+            .map { oneHourBlocks in
+                oneHourBlocks.enumerated().map({ (index, active) in Block(id: "oneHourBlock-\(index)", active: active, color: .red) })
+            }
+            .assign(to: &$oneHourBlocks)
     }
     
     private func berlinClockPublisher() -> AnyPublisher<BerlinClock, Never> {
