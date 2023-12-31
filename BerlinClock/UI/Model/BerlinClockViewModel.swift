@@ -16,7 +16,7 @@ class BerlinClockViewModel: ObservableObject {
     @Published var fiveHourBlocks: [Block] = []
     @Published var oneHourBlocks: [Block] = []
     @Published var fiveMinuteBlocks: [Block] = []
-    var oneMinuteBlocks: [Block] = []
+    @Published var oneMinuteBlocks: [Block] = []
     var timeDescription: String = ""
     
     init(calendarFactory: any CalendarFactory,
@@ -26,11 +26,6 @@ class BerlinClockViewModel: ObservableObject {
         self.calendarFactory = calendarFactory
         self.datePublisherFactory = datePublisherFactory
 
-        self.oneMinuteBlocks = berlinClock.oneMinuteBlocks.enumerated()
-            .map({ (index, active) in
-                Block(id: "oneMinuteBlock-\(index)", active: active, color: .red)
-            })
-        
         let dateFormatter = DateFormatter()
         dateFormatter.dateFormat = "HH:mm"
         
@@ -42,6 +37,7 @@ class BerlinClockViewModel: ObservableObject {
         self.subscribeToFiveHourBlockChanges()
         self.subscribeToOneHourBlockChanges()
         self.subscribeToFiveMinuteBlockChanges()
+        self.subscribeToOneMinuteBlockChanges()
     }
     
     private func subscribeToSecondHighlightChanges() {
@@ -81,6 +77,15 @@ class BerlinClockViewModel: ObservableObject {
                 })
             }
             .assign(to: &$fiveMinuteBlocks)
+    }
+    
+    private func subscribeToOneMinuteBlockChanges() {
+        self.berlinClockPublisher()
+            .map(\.oneMinuteBlocks)
+            .map { oneMinuteBlocks in
+                oneMinuteBlocks.enumerated().map({ (index, active) in Block(id: "oneMinuteBlock-\(index)", active: active, color: .red) })
+            }
+            .assign(to: &$oneMinuteBlocks)
     }
     
     private func berlinClockPublisher() -> AnyPublisher<BerlinClock, Never> {
