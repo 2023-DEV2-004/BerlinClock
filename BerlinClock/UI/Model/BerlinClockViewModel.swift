@@ -21,9 +21,7 @@ class BerlinClockViewModel: ObservableObject {
     @Published var timeDescription: String = ""
     
     init(calendarFactory: any CalendarFactory,
-         datePublisherFactory: any DatePublisherFactory,
-         berlinClock: BerlinClock,
-         date: Date) {
+         datePublisherFactory: any DatePublisherFactory) {
         self.calendarFactory = calendarFactory
         self.datePublisherFactory = datePublisherFactory
         

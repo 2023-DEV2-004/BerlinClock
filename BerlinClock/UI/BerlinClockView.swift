@@ -44,7 +44,5 @@ struct BerlinClockView: View {
 
 #Preview {
     BerlinClockView(viewModel: BerlinClockViewModel(calendarFactory: PreviewCalendarFactory(calendar: .current),
-                                                    datePublisherFactory: PreviewDatePublisherFactory(date: Date()),
-                                                    berlinClock: BerlinClock(date: Date(), calendar: .current),
-                                                    date: Date()))
+                                                    datePublisherFactory: PreviewDatePublisherFactory(date: Date())))
 }
