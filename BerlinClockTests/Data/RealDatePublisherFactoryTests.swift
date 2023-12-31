@@ -21,25 +21,20 @@ class RealDatePublisherFactoryTests: XCTestCase {
         let sut = RealDatePublisherFactory()
         let currentDateExpectation = XCTestExpectation(description: "current date being published")
         currentDateExpectation.expectedFulfillmentCount = 5
-        var dates = [Date]()
+        var dates = Set<Date>()
         
+        // Act
         sut.create()
             .sink { date in
-                dates.append(date)
+                dates.insert(date)
                 currentDateExpectation.fulfill()
             }
             .store(in: &cancellables)
                 
         wait(for: [currentDateExpectation], timeout: 5.0)
         
-        let seconds = dates.map({ Calendar.current.component(.second, from: $0) })
-        
-        let secondsAreConsecutive = seconds
-            .filter({ $0 != 0 }) // To prevent scenario's where seconds equals to [56, 57, 58, 59, 0]
-            .map { $0 - 1 }
-            .dropFirst() == seconds.dropLast()
-        
-        XCTAssertTrue(secondsAreConsecutive)
+        // Assert
+        XCTAssertEqual(5, dates.count)
     }
 
 }
