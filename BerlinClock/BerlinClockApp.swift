@@ -7,9 +7,15 @@ import SwiftUI
 
 @main
 struct BerlinClockApp: App {
+    
+    let currentCalendarFactory = CurrentCalendarFactory()
+    let realDatePublisherFactory = RealDatePublisherFactory()
+    
+    
     var body: some Scene {
         WindowGroup {
-            ContentView()
+            BerlinClockView(viewModel: BerlinClockViewModel(calendarFactory: currentCalendarFactory,
+                                                            datePublisherFactory: realDatePublisherFactory))
         }
     }
 }
