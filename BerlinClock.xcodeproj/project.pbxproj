@@ -32,6 +32,8 @@
 		6F8EC5512B40A63900C66EA2 /* PreviewCalendarFactory.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6F8EC5502B40A63900C66EA2 /* PreviewCalendarFactory.swift */; };
 		6F8EC5572B416E6000C66EA2 /* RealDatePublisherFactory.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6F8EC5562B416E6000C66EA2 /* RealDatePublisherFactory.swift */; };
 		6F8EC55A2B416ED500C66EA2 /* RealDatePublisherFactoryTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6F8EC5592B416ED500C66EA2 /* RealDatePublisherFactoryTests.swift */; };
+		6F8EC55C2B416FEA00C66EA2 /* CurrentCalendarFactoryTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6F8EC55B2B416FEA00C66EA2 /* CurrentCalendarFactoryTests.swift */; };
+		6F8EC55E2B41703100C66EA2 /* CurrentCalendarFactory.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6F8EC55D2B41703100C66EA2 /* CurrentCalendarFactory.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -80,6 +82,8 @@
 		6F8EC5502B40A63900C66EA2 /* PreviewCalendarFactory.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PreviewCalendarFactory.swift; sourceTree = "<group>"; };
 		6F8EC5562B416E6000C66EA2 /* RealDatePublisherFactory.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RealDatePublisherFactory.swift; sourceTree = "<group>"; };
 		6F8EC5592B416ED500C66EA2 /* RealDatePublisherFactoryTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RealDatePublisherFactoryTests.swift; sourceTree = "<group>"; };
+		6F8EC55B2B416FEA00C66EA2 /* CurrentCalendarFactoryTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CurrentCalendarFactoryTests.swift; sourceTree = "<group>"; };
+		6F8EC55D2B41703100C66EA2 /* CurrentCalendarFactory.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CurrentCalendarFactory.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -229,6 +233,7 @@
 			children = (
 				6F8EC5352B40170500C66EA2 /* Protocols */,
 				6F8EC5562B416E6000C66EA2 /* RealDatePublisherFactory.swift */,
+				6F8EC55D2B41703100C66EA2 /* CurrentCalendarFactory.swift */,
 			);
 			path = Data;
 			sourceTree = "<group>";
@@ -265,6 +270,7 @@
 			isa = PBXGroup;
 			children = (
 				6F8EC5592B416ED500C66EA2 /* RealDatePublisherFactoryTests.swift */,
+				6F8EC55B2B416FEA00C66EA2 /* CurrentCalendarFactoryTests.swift */,
 			);
 			path = Data;
 			sourceTree = "<group>";
@@ -401,6 +407,7 @@
 			files = (
 				6F8EC5312B400FC300C66EA2 /* BlockSectionView.swift in Sources */,
 				6F8EC5452B40A08A00C66EA2 /* DatePublisherFactory.swift in Sources */,
+				6F8EC55E2B41703100C66EA2 /* CurrentCalendarFactory.swift in Sources */,
 				6F8EC54B2B40A2F800C66EA2 /* PreviewDatePublisherFactory.swift in Sources */,
 				6F8EC4F12B3FDF5000C66EA2 /* ContentView.swift in Sources */,
 				6F8EC51F2B3FF4B000C66EA2 /* BlockUnit.swift in Sources */,
@@ -423,6 +430,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				6F8EC55C2B416FEA00C66EA2 /* CurrentCalendarFactoryTests.swift in Sources */,
 				6F8EC51B2B3FE41000C66EA2 /* BerlinClockTests.swift in Sources */,
 				6F8EC54F2B40A5A000C66EA2 /* PreviewCalendarFactoryTests.swift in Sources */,
 				6F8EC5232B3FFB2C00C66EA2 /* BerlinClockViewModelTests.swift in Sources */,
