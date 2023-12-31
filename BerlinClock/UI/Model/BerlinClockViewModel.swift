@@ -11,13 +11,14 @@ class BerlinClockViewModel: ObservableObject {
     
     private let calendarFactory: any CalendarFactory
     private let datePublisherFactory: any DatePublisherFactory
+    private let dateFormatter: DateFormatter
 
     @Published var secondHighlightColor: Color = .clear
     @Published var fiveHourBlocks: [Block] = []
     @Published var oneHourBlocks: [Block] = []
     @Published var fiveMinuteBlocks: [Block] = []
     @Published var oneMinuteBlocks: [Block] = []
-    var timeDescription: String = ""
+    @Published var timeDescription: String = ""
     
     init(calendarFactory: any CalendarFactory,
          datePublisherFactory: any DatePublisherFactory,
@@ -25,11 +26,9 @@ class BerlinClockViewModel: ObservableObject {
          date: Date) {
         self.calendarFactory = calendarFactory
         self.datePublisherFactory = datePublisherFactory
-
-        let dateFormatter = DateFormatter()
-        dateFormatter.dateFormat = "HH:mm"
         
-        self.timeDescription = dateFormatter.string(from: date)
+        dateFormatter = DateFormatter()
+        dateFormatter.dateFormat = "HH:mm"
     }
     
     func subscribeToChanges() {
@@ -38,6 +37,7 @@ class BerlinClockViewModel: ObservableObject {
         self.subscribeToOneHourBlockChanges()
         self.subscribeToFiveMinuteBlockChanges()
         self.subscribeToOneMinuteBlockChanges()
+        self.subscribeToTimeDescriptionChanges()
     }
     
     private func subscribeToSecondHighlightChanges() {
@@ -86,6 +86,12 @@ class BerlinClockViewModel: ObservableObject {
                 oneMinuteBlocks.enumerated().map({ (index, active) in Block(id: "oneMinuteBlock-\(index)", active: active, color: .red) })
             }
             .assign(to: &$oneMinuteBlocks)
+    }
+    
+    private func subscribeToTimeDescriptionChanges() {
+        self.datePublisher()
+            .map({ self.dateFormatter.string(from: $0) })
+            .assign(to: &$timeDescription)
     }
     
     private func berlinClockPublisher() -> AnyPublisher<BerlinClock, Never> {
