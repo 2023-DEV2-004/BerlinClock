@@ -8,7 +8,9 @@ import Combine
 
 struct RealDatePublisherFactory: DatePublisherFactory {
     func create() -> AnyPublisher<Date, Never> {
-        Empty().eraseToAnyPublisher()
+        Timer.publish(every: 1, on: .main, in: .common)
+            .autoconnect()
+            .eraseToAnyPublisher()
     }
 }
 
